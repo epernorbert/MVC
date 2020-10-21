@@ -3,8 +3,7 @@
 require 'AutoLoader.php';
 
 View::set('index.php', function () {
-	IndexController::CreateView('Index');
-	Mobile::getMobiles();
+	IndexController::CreateView('Index');	
 });
 
 View::set('about-us', function () {
@@ -19,8 +18,16 @@ View::set('add', function () {
 	AdminController::insertMobile($brand, $type, $color);		
 });
 
-/*if(!in_array($_GET['url'], View::$validRoute)){
+View::set('delete', function () {		
+	AdminController::deleteMobile(Controller::getUrl());
+});
+
+View::set('mobile-id', function () {	
+	MobileController::CreateView('Mobile');		
+});
+
+if(!in_array($_GET['url'], View::$validRoute)){
 	echo 'Invalid route!';
-}*/
+}
 
 ?>

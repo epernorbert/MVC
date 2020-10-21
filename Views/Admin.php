@@ -18,7 +18,15 @@
 </form>
 
 <div>	
-	<?php IndexController::showMobiles(array(3, 'brand', 'type', 'color'));	?>	
+	<?php 
+		/*
+		* IndexController::showMobiles(array(numberOfRecords, 'columName1', 'columName2'...)
+		* First parameter how many record be displayed, 2,3,4... parameter the name of colums
+		* Colums: mobile_id, brand, type, color
+		*/
+		Mobile::getMobiles();
+		AdminController::showMobiles(array($GLOBALS['numberOfRecord'], 'brand', 'type', 'color'));	
+	?>	
 </div>
 
 </body>

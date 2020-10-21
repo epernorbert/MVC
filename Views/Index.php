@@ -12,8 +12,8 @@
 	First parameter how many record be displayed, 2,3,4... parameter the name of colums
 	Colums: mobile_id, brand, type, color
 -->
-<div>
-	<?php IndexController::showMobiles(array(2, 'brand', 'type', 'color')); ?>
+<div>	
+	<?php IndexController::showMobiles(array(2, 'brand', 'type')); ?>
 </div>
 
 

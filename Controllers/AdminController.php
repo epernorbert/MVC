@@ -17,14 +17,37 @@ class AdminController extends Controller {
 			} else {
 				Mobile::setMobiles($brand, $type, $color);
 				header('Location: admin?insert=success');
-
 			}
+		}				
+	}
 
+	public static function showMobiles(array $data) {
+		$result = Mobile::getMobiles();				
+
+		$data = $data;
+		$howManyDisplay = $data[0];		
+		
+		for($row = 0; $row < $howManyDisplay; $row++) {	
+			echo '<br>';
+			foreach (array_slice($data, 1) as &$value) {			
+				echo $result[$row][$value] . '&nbsp';	
+			}
+			echo '<button type="submit">
+					<a href="./delete/'.$result[$row]['mobile_id'].'">Delete</a>
+				  </button>';	
 		}
+	}
 
-		// Next function goes here
-			
-	}	
+	public static function deleteMobile($id){
+
+		Mobile::getMobileById($id);
+		Mobile::deleteMobile($id);
+
+		header('Location: ../admin?delete=success');
+
+	}
+
+	// next function goes here.	
 	
 }
 
