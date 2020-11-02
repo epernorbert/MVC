@@ -26,8 +26,22 @@ View::set('mobile-id', function () {
 	MobileController::CreateView('Mobile');		
 });
 
-if(!in_array($_GET['url'], View::$validRoute)){
+View::set('login', function () {	
+	LoginController::CreateView('Login');		
+});
+
+View::set('loginUser', function () {	
+	LoginController::loginUser($username, $password);		
+});
+
+View::set('logout', function () {	
+	LogoutController::logout();
+});
+
+
+
+/*if(!in_array($_GET['url'], View::$validRoute)){
 	echo 'Invalid route!';
-}
+}*/
 
 ?>

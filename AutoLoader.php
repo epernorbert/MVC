@@ -11,7 +11,7 @@ function AutoLoader($className) {
 	$pathControllers = $_SERVER['DOCUMENT_ROOT'] . "/mvc/Controllers/";
 
 	//C:/xampp/htdocs/mobileshopmvc/Models/
-	$pathModels = $_SERVER['DOCUMENT_ROOT'] . "/mvc/Models/";
+	$pathModels = $_SERVER['DOCUMENT_ROOT'] . "/mvc/Models/";	
 
 	if(file_exists($pathClasses.$className.'.php')) {
 
@@ -25,6 +25,7 @@ function AutoLoader($className) {
 
 		require_once $pathModels.$className.'.php';
 		
-	}
+	} 
 	
 }
+

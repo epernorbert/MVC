@@ -9,7 +9,7 @@ class Mobile extends Database {
 
 	// Methods
 	public static function getMobiles() {
-		$sql = "SELECT * FROM mobile";
+		$sql = "SELECT * FROM mobile ORDER BY mobile_id DESC";
 		$stmt = self::connect()->query($sql);
 		$result = $stmt->fetchAll();
 		$GLOBALS['numberOfRecord'] = count($result);

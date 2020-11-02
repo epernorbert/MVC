@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		header("Location: login?login=admin");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +33,14 @@
 		*/
 		Mobile::getMobiles();
 		AdminController::showMobiles(array($GLOBALS['numberOfRecord'], 'brand', 'type', 'color'));	
+		
+		echo '<p>' . $_SESSION['username'] . '</p>'; 
 	?>	
 </div>
+
+<form action="logout" method="POST">
+	<button type="submit" name="submit" value="submit">Logout</button>
+</form>
 
 </body>
 </html>
